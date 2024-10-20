@@ -1,0 +1,77 @@
+Js
+
+let currentBalance = 1500; // Initial balance
+
+function connectWallet() {
+    // Simulated wallet connection (replace with actual connection logic)
+    alert("Wallet connected with Tonkeeper!");
+}
+
+function completeTask(reward, link, taskElement) {
+    // Update balance
+    currentBalance += reward;
+    document.getElementById('balance').innerText = currentBalance;
+    document.getElementById('balance-display').innerText = currentBalance;
+
+    // Hide the completed task
+    taskElement.style.display = 'none';
+
+    // Store the task completion in localStorage
+    const taskId = taskElement.dataset.taskId; // Assuming you set a data attribute for task id
+    const completionTime = Date.now();
+    localStorage.setItem(taskId, completionTime);
+
+    // Redirect to the task link (if applicable)
+    window.open(link, '_blank');
+
+    // Schedule the task to return after 24 hours (86400000 ms)
+    setTimeout(() => {
+        localStorage.removeItem(taskId);
+        taskElement.style.display = 'block'; // Show the task again after 24 hours
+    }, 86400000);
+}
+
+// Function to check if tasks should be displayed
+function checkTasks() {
+    const tasks = document.querySelectorAll('.task');
+    tasks.forEach(task => {
+        const taskId = task.dataset.taskId; // Assuming you set a data attribute for task id
+        const completionTime = localStorage.getItem(taskId);
+        if (completionTime && Date.now() - completionTime < 86400000) {
+            task.style.display = 'none'; // Hide the task if completed within the last 24 hours
+        }
+    });
+}
+
+// Function to claim daily bonus
+function claimDailyBonus() {
+    const lastClaimed = localStorage.getItem('lastClaimedBonus');
+    const today = new Date().toDateString();
+
+    // Check if the daily bonus has already been claimed today
+    if (lastClaimed === today) {
+        alert("You have already claimed your daily bonus today!");
+        return;
+    }
+
+    // Update balance
+    currentBalance += 100; // Daily bonus amount
+    document.getElementById('balance').innerText = currentBalance;
+    document.getElementById('balance-display').innerText = currentBalance;
+
+    // Store the claim date
+    localStorage.setItem('lastClaimedBonus', today);
+    alert("You have claimed your daily bonus of 100 FYPE coins!");
+}
+
+// Call checkTasks on page load
+window.onload = function () {
+    checkTasks();
+    const lastClaimed = localStorage.getItem('lastClaimedBonus');
+    const today = new Date().toDateString();
+
+    // If the daily bonus was claimed today, disable the button
+    if (lastClaimed === today) {
+        document.getElementById('daily-bonus-button').disabled = true;
+    }
+}

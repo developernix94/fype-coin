@@ -1,0 +1,139 @@
+Css
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff; /* White background */
+    color: #333; /* Dark gray text for better readability */
+    margin: 0;
+    padding: 0;
+    position: relative; /* For watermark positioning */
+}
+
+.watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.1; /* Light transparency */
+    z-index: -1; /* Send to back */
+    background-image: url('watermark.png'); /* Watermark image */
+    background-size: cover; /* Cover the entire area */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+}
+
+.header {
+    background-color: #00aaff; /* Blue header */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.branding .logo {
+    height: 50px;
+}
+
+.connect-wallet {
+    background-color: #ffcc00; /* Yellow button */
+    border: none;
+    color: #000; /* Black text */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.connect-wallet:hover {
+    background-color: #ffaa00; /* Darker yellow on hover */
+}
+
+.main-content {
+    margin: 20px;
+}
+
+.wallet-section, .balance-section, .tasks, .referral-section, .airdrop-section, .rewards, .leaderboard {
+    background-color: #f2f2f2; /* Light gray sections */
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    border-bottom: 2px solid #00aaff; /* Blue border */
+    padding-bottom: 10px;
+}
+
+.task, .reward, .referral-info {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.start-task {
+    background-color: #00aaff; /* Blue button */
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.start-task:hover {
+    background-color: #0077cc; /* Darker blue on hover */
+}
+
+.leaderboard {
+    background-color: #f2f2f2; /* Leaderboard section */
+    padding: 20px;
+}
+
+#leaderboard-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#leaderboard-list li {
+    padding: 5px 0;
+}
+
+.footer {
+    background-color: #00aaff; /* Blue footer */
+    color: #ffffff;
+    padding: 15px;
+    text-align: center;
+}
+
+.nav a {
+    color
+/* Support Section */
+.support-section {
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background color */
+    text-align: center;
+    border: 1px solid #e0e0e0; /* Light border */
+    border-radius: 5px;
+    margin: 20px 0; /* Margin for spacing */
+}
+
+.support-section h3 {
+    color: #333; /* Dark text color */
+}
+
+.support-link {
+    background-color: #00aaff; /* Blue background */
+    color: white; /* White text */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none; /* Remove underline */
+}
+
+.support-link:hover {
+    background-color: #0077cc; /* Darker blue on hover */
+}
